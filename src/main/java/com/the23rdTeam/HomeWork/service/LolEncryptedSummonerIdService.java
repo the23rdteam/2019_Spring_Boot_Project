@@ -12,6 +12,7 @@ public class LolEncryptedSummonerIdService {
     private EncryptedSummonerIdApiClient encryptedSummonerIdApiClient;
 
     public List<String> getEncryptedSummonerIdApiClient(){
+        List<String> EncryptedSummonersInfo = encryptedSummonerIdApiClient.getEncryptedSummonerId();
         return null;
     }
 }
