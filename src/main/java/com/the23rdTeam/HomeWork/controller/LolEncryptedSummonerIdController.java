@@ -3,8 +3,11 @@ package com.the23rdTeam.HomeWork.controller;
 
 import com.the23rdTeam.HomeWork.service.LolEncryptedSummonerIdService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /*
  Controller 클래스에 @RequestMapping 추가
@@ -16,4 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class LolEncryptedSummonerIdController {
     @Autowired
     private LolEncryptedSummonerIdService lolEncryptedSummonerIdService;
+
+    @GetMapping("/userSummonerId")
+    public List<String> getEncryptedSummonerId(){
+        return lolEncryptedSummonerIdService.getEncryptedSummonerIdApiClient();
+    }
 }
