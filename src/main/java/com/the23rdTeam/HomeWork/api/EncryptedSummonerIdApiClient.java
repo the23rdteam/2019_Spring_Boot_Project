@@ -15,7 +15,7 @@ public class EncryptedSummonerIdApiClient {
     @Autowired
     private RestTemplate restTemplate;
 
-    private final String userId = "hide on bush";
+    private final String userId = "BBBOTTT";
 
     private final String apiKey = "RGAPI-74183467-1c69-41aa-8217-fa40cb8cce6d";
 
