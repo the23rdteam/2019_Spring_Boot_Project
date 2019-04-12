@@ -13,6 +13,6 @@ public class LolEncryptedSummonerIdService {
 
     public List<String> getEncryptedSummonerIdApiClient(){
         List<String> EncryptedSummonersInfo = encryptedSummonerIdApiClient.getEncryptedSummonerId();
-        return null;
+        return EncryptedSummonersInfo;
     }
 }
