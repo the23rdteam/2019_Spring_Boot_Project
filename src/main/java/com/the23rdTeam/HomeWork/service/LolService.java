@@ -1,10 +1,12 @@
 package com.the23rdTeam.HomeWork.service;
 
 import com.the23rdTeam.HomeWork.domain.Lol;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class LolService {
     private List<Lol> Lolidlist = new ArrayList<>();
 
@@ -13,7 +15,7 @@ public class LolService {
         Lolidlist.add(lol);
     }
 
-    public List<Lol> getAllDogs(){
+    public List<Lol> getAllLol(){
         return Lolidlist;
     }
 

@@ -6,7 +6,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.lang.reflect.ParameterizedType;
+import java.util.List;
+
 
 @Service
 public class OpenLolSummonerPositionByNameApiClient {
@@ -16,14 +17,14 @@ public class OpenLolSummonerPositionByNameApiClient {
 
     private final String apiKey = "RGAPI-74183467-1c69-41aa-8217-fa40cb8cce6d" ;
 
-    private final String encryptedSummonerId = "";
+    private final String encryptedSummonerId = "hide on bush";
 
-    private final String summonerPositionAPI = "https://kr.api.riotgames.com/lol/league/v4/positions/by-summoner/{encryptedSummonerId}?api_key=RGAPI-74183467-1c69-41aa-8217-fa40cb8cce6d";
+    private final String summonerPositionAPI = "https://kr.api.riotgames.com/lol/league/v4/positions/by-summoner/{encryptedSummonerId}?api_key={apiKey}";
 
-    private final ParameterizedTypeReference<String> responseType = new ParameterizedTypeReference<String>(){};
+    private final ParameterizedTypeReference<List<String>> responseType = new ParameterizedTypeReference<List<String>>(){};
 
-    public String getSummonerPosition(){
-        String responseBody = restTemplate.exchange(summonerPositionAPI, HttpMethod.GET, null, responseType).getBody();
+    public List<String> getSummonerPosition(){
+        List<String> responseBody = restTemplate.exchange(summonerPositionAPI, HttpMethod.GET, null, responseType).getBody();
         return responseBody;
     }
 
