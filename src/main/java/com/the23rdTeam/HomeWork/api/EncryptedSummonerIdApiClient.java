@@ -24,8 +24,8 @@ public class EncryptedSummonerIdApiClient {
     private final ParameterizedTypeReference<List<String>> responseType = new ParameterizedTypeReference<List<String>>(){};
 
     public List<String> getEncryptedSummonerId(){
-        String[] responseBody = restTemplate.exchange(EncryptedSummonerIdUri, HttpMethod.GET, null, String[].class, userId, apiKey).getBody();
-        return null;
+        List<String> responseBody = restTemplate.exchange(EncryptedSummonerIdUri, HttpMethod.GET, null, responseType, userId, apiKey).getBody();
+        return responseBody;
     }
 }
 
