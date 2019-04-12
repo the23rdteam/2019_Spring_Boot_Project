@@ -1,6 +1,7 @@
 package com.the23rdTeam.HomeWork.controller;
 
 
+import com.the23rdTeam.HomeWork.service.LolEncryptedSummonerIdService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,5 +13,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/lolEncryptedSummonerId")
 public class LolEncryptedSummonerIdController {
-
+    private LolEncryptedSummonerIdService lolEncryptedSummonerIdService;
 }
