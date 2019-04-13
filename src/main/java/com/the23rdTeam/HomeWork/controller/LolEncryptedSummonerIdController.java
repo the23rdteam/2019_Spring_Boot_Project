@@ -5,6 +5,7 @@ import com.the23rdTeam.HomeWork.service.LolEncryptedSummonerIdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
  http://localhost:8080/weather-crawler와 같이 매핑됨.
  */
 @RestController
-@RequestMapping("/lolEncryptedSummonerId")
+@RequestMapping(value = "/lolEncryptedSummonerId",method= RequestMethod.POST,consumes = "application/json",produces = "application/json")
 public class LolEncryptedSummonerIdController {
     @Autowired
     private LolEncryptedSummonerIdService lolEncryptedSummonerIdService;
