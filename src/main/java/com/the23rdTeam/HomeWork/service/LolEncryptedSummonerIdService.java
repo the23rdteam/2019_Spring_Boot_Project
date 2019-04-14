@@ -30,7 +30,8 @@ public class LolEncryptedSummonerIdService {
         if(leaguePositionPTOSet.isEmpty())
         {
             SummonerDTO leaguePositionPTOS = this.getEncryptedSummonerIdApiClient();
-
+            leaguePositionPTOSet.add(leaguePositionPTOS);
         }
+
     }
 }
