@@ -1,6 +1,7 @@
 package com.the23rdTeam.HomeWork.controller;
 
 
+import com.the23rdTeam.HomeWork.repository.CurrentPositionDB;
 import com.the23rdTeam.HomeWork.service.LolEncryptedSummonerIdService;
 import com.the23rdTeam.HomeWork.domain.SummonerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,11 @@ public class LolEncryptedSummonerIdController {
     @GetMapping("/userSummonerId")
     public SummonerDTO getEncryptedSummonerId(){
         return lolEncryptedSummonerIdService.getEncryptedSummonerIdApiClient();
+    }
+
+    @GetMapping("/currentPosition/{summonerId}")
+    public CurrentPositionDB getCurrentPositionBySummonerId(@PathVariable String summonerId){
+        return null;
     }
 
 }
