@@ -1,5 +1,6 @@
 package com.the23rdTeam.HomeWork.api;
 
+import com.the23rdTeam.HomeWork.domain.LeaguePosition;
 import com.the23rdTeam.HomeWork.domain.LeaguePositionPTO;
 import com.the23rdTeam.HomeWork.repository.CurrentPositionDB;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,14 +31,14 @@ public class ShowLeaguePositionApiClient {
         return requestHeaders;
     }
 
-    private final ParameterizedTypeReference<CurrentPositionDB> responseType = new ParameterizedTypeReference<CurrentPositionDB>(){};
+    private final ParameterizedTypeReference<Set<LeaguePositionPTO>> responseType = new ParameterizedTypeReference<Set<LeaguePositionPTO>>(){};
 
     HttpEntity<?> httpEntity = new HttpEntity<>(setRequestHeaders(requestHeaders));
 
-    public CurrentPositionDB getPosition(String EncryptedSummonerId){
+    public Set<LeaguePositionPTO> getPosition(String EncryptedSummonerId){
 
-        ResponseEntity<CurrentPositionDB> currentGetPosition = restTemplate.exchange(currentSummonerUrl, HttpMethod.GET,httpEntity, responseType, EncryptedSummonerId, apiKey);
-        CurrentPositionDB body = currentGetPosition.getBody();
+        ResponseEntity<Set<LeaguePositionPTO>> currentGetPosition = restTemplate.exchange(currentSummonerUrl, HttpMethod.GET,httpEntity, responseType, EncryptedSummonerId, apiKey);
+        Set<LeaguePositionPTO> body = currentGetPosition.getBody();
         return body;
     }
 

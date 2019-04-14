@@ -45,14 +45,19 @@ public class LolEncryptedSummonerIdService {
 
         String summonerDTO1 = leaguePositionPTOSet.pop();
         leaguePositionPTOSet.add(summonerDTO1);
+        Set<LeaguePositionPTO> test = showLeaguePositionApiClient.getPosition(summonerDTO1);
 
-        CurrentPositionDB leaguePositionPTO = showLeaguePositionApiClient.getPosition(summonerDTO1);
+        LeaguePositionPTO leaguePositionPTO = null ;
+        for(LeaguePositionPTO a: test)
+        {
+            leaguePositionPTO = a;
+        }
 
-        CurrentPositionDB insertedCurrentPO = currentPositionDB.insertCurrentPositionDB(leaguePositionPTO);
+        LeaguePositionPTO insertedCurrentPO = currentPositionDB.insertCurrentPositionDB(leaguePositionPTO);
         log.info("currentPosition has inserted successfully. CurrentPosition : {}", insertedCurrentPO);
 
     }
-    public CurrentPositionDB getCurrentPositionDB(String summonerId){
+    public LeaguePositionPTO getCurrentPositionDB(String summonerId){
         return currentPositionDB.findPositionBySummonerId(summonerId);
     }
 }
