@@ -32,7 +32,6 @@ public class EncryptedSummonerIdApiClient {
         return requestHeaders;
     }
 
-
     private final ParameterizedTypeReference<SummonerDTO> responseType = new ParameterizedTypeReference<SummonerDTO>(){};
 
     HttpEntity<?> httpEntity = new HttpEntity<>(setRequestHeaders(requestHeaders));
