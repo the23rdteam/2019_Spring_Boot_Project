@@ -4,6 +4,7 @@ import com.the23rdTeam.HomeWork.api.EncryptedSummonerIdApiClient;
 import com.the23rdTeam.HomeWork.api.ShowLeaguePositionApiClient;
 import com.the23rdTeam.HomeWork.domain.LeaguePositionPTO;
 import com.the23rdTeam.HomeWork.domain.SummonerDTO;
+import com.the23rdTeam.HomeWork.repository.CurrentPositionDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
