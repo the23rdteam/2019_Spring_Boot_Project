@@ -7,6 +7,7 @@ import com.the23rdTeam.HomeWork.domain.SummonerDTO;
 import com.the23rdTeam.HomeWork.repository.CurrentPositionDB;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.HTMLDocument;
@@ -34,6 +35,7 @@ public class LolEncryptedSummonerIdService {
         return EncryptedSummonersInfo;
     }
 
+    @Scheduled(initialDelay = 5000L, fixedDelay = 2000L)
     public void getLeaguePositionByEncryptedSummonerId(){
         if(leaguePositionPTOSet.isEmpty())
         {
