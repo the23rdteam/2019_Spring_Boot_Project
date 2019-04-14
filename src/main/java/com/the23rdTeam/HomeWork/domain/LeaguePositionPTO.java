@@ -1,4 +1,4 @@
-package com.the23rdTeam.HomeWork.wrapper;
+package com.the23rdTeam.HomeWork.domain;
 
 import lombok.Data;
 

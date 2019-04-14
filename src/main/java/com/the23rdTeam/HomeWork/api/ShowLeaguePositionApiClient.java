@@ -1,6 +1,6 @@
 package com.the23rdTeam.HomeWork.api;
 
-import com.the23rdTeam.HomeWork.wrapper.LeaguePositionPTO;
+import com.the23rdTeam.HomeWork.domain.LeaguePositionPTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;

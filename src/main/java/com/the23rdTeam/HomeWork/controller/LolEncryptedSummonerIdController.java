@@ -2,13 +2,9 @@ package com.the23rdTeam.HomeWork.controller;
 
 
 import com.the23rdTeam.HomeWork.service.LolEncryptedSummonerIdService;
-import com.the23rdTeam.HomeWork.wrapper.SummonerDTO;
+import com.the23rdTeam.HomeWork.domain.SummonerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 /*
  Controller 클래스에 @RequestMapping 추가

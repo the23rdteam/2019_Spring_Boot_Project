@@ -1,16 +1,12 @@
 package com.the23rdTeam.HomeWork.api;
 
-import com.the23rdTeam.HomeWork.wrapper.SummonerDTO;
+import com.the23rdTeam.HomeWork.domain.SummonerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.nio.charset.StandardCharsets;
-import java.util.Collection;
-import java.util.List;
 
 
 @Service
