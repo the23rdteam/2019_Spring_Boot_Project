@@ -24,4 +24,8 @@ public class LolEncryptedSummonerIdService {
         SummonerDTO EncryptedSummonersInfo = encryptedSummonerIdApiClient.getEncryptedSummonerId();
         return EncryptedSummonersInfo;
     }
+
+    public void getLeaguePositionByEncryptedSummonerId(SummonerDTO summonerDTO){
+
+    }
 }
