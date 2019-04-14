@@ -19,6 +19,9 @@ public class LolEncryptedSummonerIdService {
     @Autowired
     private ShowLeaguePositionApiClient showLeaguePositionApiClient;
 
+    @Autowired
+    private CurrentPositionDB currentPositionDB;
+
     private LinkedList<String> leaguePositionPTOSet = new LinkedList<String>();
 
     public SummonerDTO getEncryptedSummonerIdApiClient(){
