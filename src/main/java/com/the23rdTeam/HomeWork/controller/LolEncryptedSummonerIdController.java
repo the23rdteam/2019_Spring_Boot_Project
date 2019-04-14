@@ -25,7 +25,9 @@ public class LolEncryptedSummonerIdController {
 
     @GetMapping("/currentPosition/{summonerId}")
     public CurrentPositionDB getCurrentPositionBySummonerId(@PathVariable String summonerId){
-        return null;
+        return LolEncryptedSummonerIdService.getCurrentPositionDB(summonerId);
     }
+
+
 
 }

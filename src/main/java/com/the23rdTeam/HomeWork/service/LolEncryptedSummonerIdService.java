@@ -52,4 +52,7 @@ public class LolEncryptedSummonerIdService {
         log.info("currentPosition has inserted successfully. CurrentPosition : {}", insertedCurrentPO);
 
     }
+    public CurrentPositionDB getCurrentPositionDB(String summonerId){
+        return null;
+    }
 }
