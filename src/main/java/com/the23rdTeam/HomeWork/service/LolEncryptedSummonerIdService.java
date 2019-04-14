@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
-
+import java.util.Set;
 
 
 @Service
@@ -19,19 +19,24 @@ public class LolEncryptedSummonerIdService {
     @Autowired
     private ShowLeaguePositionApiClient showLeaguePositionApiClient;
 
-    private LinkedList<SummonerDTO> leaguePositionPTOSet = new LinkedList<SummonerDTO>();
+    private LinkedList<String> leaguePositionPTOSet = new LinkedList<String>();
 
     public SummonerDTO getEncryptedSummonerIdApiClient(){
         SummonerDTO EncryptedSummonersInfo = encryptedSummonerIdApiClient.getEncryptedSummonerId();
         return EncryptedSummonersInfo;
     }
 
-    public void getLeaguePositionByEncryptedSummonerId(SummonerDTO summonerDTO){
+    public void getLeaguePositionByEncryptedSummonerId(){
         if(leaguePositionPTOSet.isEmpty())
         {
             SummonerDTO leaguePositionPTOS = this.getEncryptedSummonerIdApiClient();
-            leaguePositionPTOSet.add(leaguePositionPTOS);
+            leaguePositionPTOSet.add(leaguePositionPTOS.getId());
         }
+
+        String summonerDTO1 = leaguePositionPTOSet.pop();
+        leaguePositionPTOSet.add(summonerDTO1);
+
+        Set<LeaguePositionPTO> leaguePositionPTO = showLeaguePositionApiClient.getPosition(summonerDTO1);
 
     }
 }
