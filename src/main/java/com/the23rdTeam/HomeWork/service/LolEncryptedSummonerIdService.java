@@ -7,7 +7,8 @@ import com.the23rdTeam.HomeWork.domain.SummonerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
+import java.util.LinkedList;
+
 
 
 @Service
@@ -18,7 +19,7 @@ public class LolEncryptedSummonerIdService {
     @Autowired
     private ShowLeaguePositionApiClient showLeaguePositionApiClient;
 
-    private Set<LeaguePositionPTO> leaguePositionPTOSet = new Set<LeaguePositionPTO>();
+    private LinkedList<SummonerDTO> leaguePositionPTOSet = new LinkedList<SummonerDTO>();
 
     public SummonerDTO getEncryptedSummonerIdApiClient(){
         SummonerDTO EncryptedSummonersInfo = encryptedSummonerIdApiClient.getEncryptedSummonerId();
@@ -26,6 +27,10 @@ public class LolEncryptedSummonerIdService {
     }
 
     public void getLeaguePositionByEncryptedSummonerId(SummonerDTO summonerDTO){
+        if(leaguePositionPTOSet.isEmpty())
+        {
+            SummonerDTO leaguePositionPTOS = this.getEncryptedSummonerIdApiClient();
 
+        }
     }
 }
