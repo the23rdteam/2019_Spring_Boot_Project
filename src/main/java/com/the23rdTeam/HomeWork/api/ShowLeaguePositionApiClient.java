@@ -14,5 +14,8 @@ public class ShowLeaguePositionApiClient {
 
     private final String currentSummonerUrl = "https://kr.api.riotgames.com/lol/league/v4/positions/by-summoner/{EncryptedSummonerId}?api_key={apiKey}";
 
+    public String getPosition(String EncryptedSummonerId){
+        return null;
+    }
 
 }
