@@ -12,5 +12,7 @@ public class ShowLeaguePositionApiClient {
 
     private final String apiKey = "RGAPI-d59f0504-2f1e-4d29-be6f-320e4ebd5704";
 
-    private final String currentSummonerUrl = "https://kr.api.riotgames.com/lol/league/v4/positions/by-summoner/zT5zEjgx5YkklHkGIZWvztcsIA1Z9ZZHdAs1PVd1FidjvYg?api_key={apiKey}";
+    private final String currentSummonerUrl = "https://kr.api.riotgames.com/lol/league/v4/positions/by-summoner/{EncryptedSummonerId}?api_key={apiKey}";
+
+
 }
