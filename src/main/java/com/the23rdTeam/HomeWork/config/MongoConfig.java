@@ -12,6 +12,7 @@ public class MongoConfig {
         MongoClient mongoClient = new MongoClient("localhost", 27017);
         String databaseName = "LoLPosition";
         return new MongoTemplate(mongoClient, databaseName);
-
     }
+
+
 }

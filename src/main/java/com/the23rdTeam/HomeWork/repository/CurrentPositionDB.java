@@ -9,4 +9,8 @@ public class CurrentPositionDB {
 
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    public CurrentPositionDB insertCurrentPositionDB(CurrentPositionDB currentPositionDB){
+        return mongoTemplate.insert(currentPositionDB);
+    }
 }
