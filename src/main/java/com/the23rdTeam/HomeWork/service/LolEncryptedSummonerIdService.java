@@ -5,14 +5,18 @@ import com.the23rdTeam.HomeWork.api.ShowLeaguePositionApiClient;
 import com.the23rdTeam.HomeWork.domain.LeaguePositionPTO;
 import com.the23rdTeam.HomeWork.domain.SummonerDTO;
 import com.the23rdTeam.HomeWork.repository.CurrentPositionDB;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.HTMLDocument;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Set;
 
 
 @Service
+@Slf4j
 public class LolEncryptedSummonerIdService {
     @Autowired
     private EncryptedSummonerIdApiClient encryptedSummonerIdApiClient;
@@ -40,7 +44,10 @@ public class LolEncryptedSummonerIdService {
         String summonerDTO1 = leaguePositionPTOSet.pop();
         leaguePositionPTOSet.add(summonerDTO1);
 
-        Set<LeaguePositionPTO> leaguePositionPTO = showLeaguePositionApiClient.getPosition(summonerDTO1);
+        CurrentPositionDB leaguePositionPTO = showLeaguePositionApiClient.getPosition(summonerDTO1);
+
+        CurrentPositionDB insertedCurrentPO = currentPositionDB.insertCurrentPositionDB(leaguePositionPTO);
+        log.info("currentPosition has inserted successfully. CurrentPosition : {}", insertedCurrentPO);
 
     }
 }
