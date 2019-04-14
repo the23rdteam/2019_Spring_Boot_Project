@@ -2,12 +2,12 @@ package com.the23rdTeam.HomeWork.controller;
 
 
 import com.the23rdTeam.HomeWork.service.LolEncryptedSummonerIdService;
+import com.the23rdTeam.HomeWork.wrapper.SummonerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /*
@@ -16,13 +16,14 @@ import java.util.List;
  http://localhost:8080/weather-crawler와 같이 매핑됨.
  */
 @RestController
-@RequestMapping(value = "/lolEncryptedSummonerId",method= RequestMethod.POST,consumes = "application/json",produces = "application/json")
+@RequestMapping("/lolEncryptedSummonerId")
 public class LolEncryptedSummonerIdController {
     @Autowired
     private LolEncryptedSummonerIdService lolEncryptedSummonerIdService;
 
     @GetMapping("/userSummonerId")
-    public List<String> getEncryptedSummonerId(){
+    public SummonerDTO getEncryptedSummonerId(){
         return lolEncryptedSummonerIdService.getEncryptedSummonerIdApiClient();
     }
+
 }
