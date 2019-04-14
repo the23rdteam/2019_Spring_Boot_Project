@@ -53,6 +53,6 @@ public class LolEncryptedSummonerIdService {
 
     }
     public CurrentPositionDB getCurrentPositionDB(String summonerId){
-        return null;
+        return currentPositionDB.findPosition(summonerId);
     }
 }
