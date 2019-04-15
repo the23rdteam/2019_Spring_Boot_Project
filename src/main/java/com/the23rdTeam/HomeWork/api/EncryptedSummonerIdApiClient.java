@@ -17,7 +17,7 @@ public class EncryptedSummonerIdApiClient {
 
     private final String userId = "BBBOTTT";
 
-    private final String apiKey = "RGAPI-d59f0504-2f1e-4d29-be6f-320e4ebd5704";
+    private final String apiKey = "RGAPI-1d45e1cf-1492-4df5-89b1-19be3954216d";
 
     private final String EncryptedSummonerIdUri = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{userId}?api_key={apiKey}";
 
