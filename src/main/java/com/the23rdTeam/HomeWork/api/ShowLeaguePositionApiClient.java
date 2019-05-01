@@ -20,7 +20,7 @@ public class ShowLeaguePositionApiClient {
     @Autowired
     private RestTemplate restTemplate;
 
-    private final String apiKey = "RGAPI-b7ca058c-f9f2-42db-bb95-66eea762ce5d";
+    private final String apiKey = "RGAPI-a649dfd3-8021-4e95-8e46-89cf5be1d0ff";
 
     private final String currentSummonerUrl = "https://kr.api.riotgames.com/lol/league/v4/positions/by-summoner/{EncryptedSummonerId}?api_key={apiKey}";
 
