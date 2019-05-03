@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import javax.swing.text.html.HTMLDocument;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -28,34 +29,39 @@ public class LolEncryptedSummonerIdService {
     @Autowired
     private CurrentPositionDB currentPositionDB;
 
+
     private LinkedList<String> leaguePositionPTOSet = new LinkedList<String>();
 
-    public SummonerDTO getEncryptedSummonerIdApiClient(){
-        SummonerDTO EncryptedSummonersInfo = encryptedSummonerIdApiClient.getEncryptedSummonerId();
+    public SummonerDTO getEncryptedSummonerIdApiClient(String summonerName){
+        SummonerDTO EncryptedSummonersInfo = encryptedSummonerIdApiClient.getEncryptedSummonerId(summonerName);
         return EncryptedSummonersInfo;
     }
 
-    @Scheduled(initialDelay = 5000L, fixedDelay = 2000L)
+    @PostConstruct
     public void getLeaguePositionByEncryptedSummonerId(){
         if(leaguePositionPTOSet.isEmpty())
         {
-            SummonerDTO leaguePositionPTOS = this.getEncryptedSummonerIdApiClient();
-            leaguePositionPTOSet.add(leaguePositionPTOS.getId());
+
+            String[] summonerNames = {"hide on bush", "Bed of roses", "BBBOTTT", "나는왜게임을하지"};
+
+            for(int i=0; i<summonerNames.length;i++) {
+                SummonerDTO leaguePositionPTOS = this.getEncryptedSummonerIdApiClient(summonerNames[i]);
+                leaguePositionPTOSet.add(leaguePositionPTOS.getId());
+            }
+            for(int i=0; i<leaguePositionPTOSet.size();i++) {
+
+                String summonerDTO1 = leaguePositionPTOSet.pop();
+                leaguePositionPTOSet.add(summonerDTO1);
+                Set<LeaguePositionPTO> test = showLeaguePositionApiClient.getPosition(summonerDTO1);
+                LeaguePositionPTO leaguePositionPTO = null;
+                for (LeaguePositionPTO a : test) {
+                    leaguePositionPTO = a;
+                }
+                LeaguePositionPTO insertedCurrentPO = currentPositionDB.insertCurrentPositionDB(leaguePositionPTO);
+                log.info("currentPosition has inserted successfully. CurrentPosition : {}", insertedCurrentPO);
+            }
+
         }
-
-        String summonerDTO1 = leaguePositionPTOSet.pop();
-        leaguePositionPTOSet.add(summonerDTO1);
-        Set<LeaguePositionPTO> test = showLeaguePositionApiClient.getPosition(summonerDTO1);
-
-        LeaguePositionPTO leaguePositionPTO = null ;
-        for(LeaguePositionPTO a: test)
-        {
-            leaguePositionPTO = a;
-        }
-
-        LeaguePositionPTO insertedCurrentPO = currentPositionDB.insertCurrentPositionDB(leaguePositionPTO);
-        log.info("currentPosition has inserted successfully. CurrentPosition : {}", insertedCurrentPO);
-
     }
     public LeaguePositionPTO getCurrentPositionDB(String summonerId){
         return currentPositionDB.findPositionBySummonerId(summonerId);
