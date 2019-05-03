@@ -18,9 +18,9 @@ public class LolEncryptedSummonerIdController {
     @Autowired
     private LolEncryptedSummonerIdService lolEncryptedSummonerIdService;
 
-    @GetMapping("/userSummonerId")
-    public SummonerDTO getEncryptedSummonerId(){
-        return lolEncryptedSummonerIdService.getEncryptedSummonerIdApiClient();
+    @GetMapping("/userSummonerId/{summonerName}")
+    public SummonerDTO getEncryptedSummonerId(@PathVariable String summonerName){
+        return lolEncryptedSummonerIdService.getEncryptedSummonerIdApiClient(summonerName);
     }
 
     @GetMapping("/currentPosition/{summonerId}")

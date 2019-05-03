@@ -17,7 +17,7 @@ public class EncryptedSummonerIdApiClient {
 
     private final String userId = "BBBOTTT";
 
-    private final String apiKey = "RGAPI-a649dfd3-8021-4e95-8e46-89cf5be1d0ff";
+    private final String apiKey = "RGAPI-699b3aa0-c81d-42ec-a095-886035a4f9dc";
 
     private final String EncryptedSummonerIdUri = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{userId}?api_key={apiKey}";
 
@@ -32,8 +32,8 @@ public class EncryptedSummonerIdApiClient {
 
     HttpEntity<?> httpEntity = new HttpEntity<>(setRequestHeaders(requestHeaders));
 
-    public SummonerDTO getEncryptedSummonerId(){
-        ResponseEntity<SummonerDTO> responseBody = restTemplate.exchange(EncryptedSummonerIdUri, HttpMethod.GET,httpEntity,responseType, userId, apiKey);
+    public SummonerDTO getEncryptedSummonerId(String summonerName){
+        ResponseEntity<SummonerDTO> responseBody = restTemplate.exchange(EncryptedSummonerIdUri, HttpMethod.GET,httpEntity,responseType, summonerName, apiKey);
         SummonerDTO body = responseBody.getBody();
         return body;
     }
